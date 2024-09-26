@@ -15,7 +15,7 @@ connectDB();
 // Initialize Express app
 
 app.use(cors({
-    origin: '*',
+    origin: 'https://employeemanagementsystem-two.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true 
 }));

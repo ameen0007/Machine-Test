@@ -12,7 +12,7 @@ export const AdminDashboard = () => {
 
     const fetchEmployees = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/employees');
+            const response = await axios.get('https://machine-test-production.up.railway.app/api/employees');
             console.log(response.data, "getdata");
             setEmployees(response.data); 
         } catch (error) {
@@ -41,7 +41,7 @@ export const AdminDashboard = () => {
     const handleDelete = async (id) => {
         try {
             console.log(id, "id");
-            await axios.delete(`http://localhost:3000/api/employees/delete-employee/${id}`); 
+            await axios.delete(`https://machine-test-production.up.railway.app/api/employees/delete-employee/${id}`); 
             fetchEmployees(); // Refresh employees after deletion
         } catch (error) {
             console.error('Error deleting employee:', error);
@@ -57,11 +57,11 @@ export const AdminDashboard = () => {
             // Update employee on the backend
             console.log(employee,"employee");
             
-            await axios.put(`http://localhost:3000/api/employees/update-employee`, employee);
+            await axios.put(`https://machine-test-production.up.railway.app/api/employees/update-employee`, employee);
             fetchEmployees();
         } else {
             // Add employee on the backend
-            const response = await axios.post('http://localhost:3000/api/employees/create-employee', employee);
+            const response = await axios.post('https://machine-test-production.up.railway.app/api/employees/create-employee', employee);
             setEmployees([...employees, response.data]); 
         }
         setModalOpen(false);
